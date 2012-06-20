@@ -3,6 +3,8 @@
  */
 package com.supinfo.anthill;
 
+import com.supinfo.anthill.models.Anthill;
+
 /**
  * @author Sebastien Magat
  * 
