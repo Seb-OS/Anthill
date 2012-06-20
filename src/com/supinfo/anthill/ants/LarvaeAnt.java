@@ -10,7 +10,7 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
  */
 public class LarvaeAnt extends AbstractAnt {
 
-	static int nbOfLarvaes;
+	private static int nbOfLarvaes;
 
 	public LarvaeAnt() {
 		setId(getRefId() + 1);
@@ -20,21 +20,28 @@ public class LarvaeAnt extends AbstractAnt {
 	@Override
 	public AbstractAnt updateStatus() {
 		setAge(getAge() + 1);
-		if (getAge() == 10) {
+		System.out.println("Larve a grandit");
+		if ((getAge() == 10) && (MaleAnt.getNbOfMales() > 0)
+				&& (QueenAnt.getNbOfQueens() > 0)) {
 			nbOfLarvaes--;
 			Random random = new Random();
-			switch (random.nextInt(3)) {
+			switch (random.nextInt(20)) {
 			case 0:
+				System.out.println("Naissance d'un mâle");
 				return new MaleAnt();
 			case 1:
+				System.out.println("naissance d'un communiste");
 				return new WorkerAnt();
-			case 2:
-				return new QueenAnt();
 			default:
-				return null;
+				System.out.println("Oh la belle reine");
+				return new QueenAnt();
 			}
 		}
-		return null;
+		return this;
+	}
+
+	public static int getNbOfLarvaes() {
+		return nbOfLarvaes;
 	}
 
 }

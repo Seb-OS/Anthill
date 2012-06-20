@@ -8,7 +8,7 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
  */
 public class WorkerAnt extends AbstractAnt {
 
-	static int nbOfWorkers;
+	private static int nbOfWorkers;
 
 	public WorkerAnt() {
 		setId(getRefId() + 1);
@@ -22,5 +22,9 @@ public class WorkerAnt extends AbstractAnt {
 			nbOfWorkers--;
 		}
 		return null;
+	}
+
+	public static int getNbOfWorkers() {
+		return nbOfWorkers;
 	}
 }

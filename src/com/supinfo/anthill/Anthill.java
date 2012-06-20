@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.supinfo.anthill.abstracts.AbstractAnt;
+import com.supinfo.anthill.ants.LarvaeAnt;
+import com.supinfo.anthill.ants.MaleAnt;
+import com.supinfo.anthill.ants.QueenAnt;
+import com.supinfo.anthill.ants.WorkerAnt;
 
 public class Anthill {
 
@@ -14,14 +18,18 @@ public class Anthill {
 
 	public Anthill() {
 		antHill = new ArrayList<AbstractAnt>();
-		this.antHill = antHill;
+		for (int i = 0; i <= 10; i++) {
+			antHill.add(new MaleAnt());
+			antHill.add(new LarvaeAnt());
+			antHill.add(new QueenAnt());
+			antHill.add(new WorkerAnt());
+			System.out.println("Ils sont ici !!!");
+		}
 	}
 
 	public void nextTurn() {
-		for (AbstractAnt ant : antHill) {
-			ant.updateStatus();
+		for (int i = 0; i < antHill.size(); i++) {
+			antHill.set(i, antHill.get(i).updateStatus());
 		}
-		// Faire boucle sur la collection avec un for each.
-		// Met a jour chaque statu
 	}
 }

@@ -8,7 +8,7 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
  */
 public class MaleAnt extends AbstractAnt {
 
-	static int nbOfMales;
+	private static int nbOfMales;
 
 	public MaleAnt() {
 		setId(getRefId() + 1);
@@ -24,4 +24,8 @@ public class MaleAnt extends AbstractAnt {
 		return null;
 	}
 
+	public static int getNbOfMales() {
+		return nbOfMales;
+	}
+	
 }
