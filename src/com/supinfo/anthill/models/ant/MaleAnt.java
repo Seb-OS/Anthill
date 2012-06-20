@@ -13,6 +13,7 @@ public class MaleAnt extends AbstractAnt {
 	public MaleAnt() {
 		setId(getRefId() + 1);
 		nbOfMales++;
+		setNbOfBirth(getNbOfBirth() + 1);
 	}
 
 	@Override
@@ -20,6 +21,7 @@ public class MaleAnt extends AbstractAnt {
 		setAge(getAge() + 1);
 		if (getAge() == 20) {
 			nbOfMales--;
+			setNbOfDeath(getNbOfDeath() + 1);
 		}
 		return null;
 	}

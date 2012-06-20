@@ -13,6 +13,7 @@ public class WorkerAnt extends AbstractAnt {
 	public WorkerAnt() {
 		setId(getRefId() + 1);
 		nbOfWorkers++;
+		setNbOfBirth(getNbOfBirth() + 1);
 	}
 
 	@Override
@@ -20,6 +21,7 @@ public class WorkerAnt extends AbstractAnt {
 		setAge(getAge() + 1);
 		if (getAge() == 50) {
 			nbOfWorkers--;
+			setNbOfDeath(getNbOfDeath() + 1);
 		}
 		return null;
 	}

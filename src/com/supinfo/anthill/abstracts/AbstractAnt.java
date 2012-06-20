@@ -5,9 +5,25 @@ package com.supinfo.anthill.abstracts;
  * 
  */
 public abstract class AbstractAnt {
-	private int id;
-	private int age;
-	static int refId;
+
+	private int id, age;
+	static int refId, nbOfDeath, nbOfBirth;
+
+	public static int getNbOfDeath() {
+		return nbOfDeath;
+	}
+
+	public static void setNbOfDeath(int nbOfDeath) {
+		AbstractAnt.nbOfDeath = nbOfDeath;
+	}
+
+	public static int getNbOfBirth() {
+		return nbOfBirth;
+	}
+
+	public static void setNbOfBirth(int nbOfBirth) {
+		AbstractAnt.nbOfBirth = nbOfBirth;
+	}
 
 	public int getId() {
 		return id;

@@ -1,7 +1,5 @@
 package com.supinfo.anthill.models.ant;
 
-import java.util.Random;
-
 import com.supinfo.anthill.abstracts.AbstractAnt;
 import com.supinfo.anthill.models.Anthill;
 
@@ -16,6 +14,7 @@ public class QueenAnt extends AbstractAnt {
 	public QueenAnt() {
 		setId(getRefId() + 1);
 		nbOfQueens++;
+		setNbOfBirth(getNbOfBirth() + 1);
 	}
 
 	@Override
@@ -25,6 +24,7 @@ public class QueenAnt extends AbstractAnt {
 			return Anthill.randomBirth(10);
 		} else if (getAge() >= 50) {
 			nbOfQueens--;
+			setNbOfDeath(getNbOfDeath() + 1);
 		}
 		return null;
 	}

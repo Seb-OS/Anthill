@@ -15,6 +15,7 @@ public class LarvaeAnt extends AbstractAnt {
 		this.type = type;
 		setId(getRefId() + 1);
 		nbOfLarvaes++;
+		setNbOfBirth(getNbOfBirth() + 1);
 	}
 
 	@Override
@@ -23,6 +24,7 @@ public class LarvaeAnt extends AbstractAnt {
 		System.out.println("Larve a grandit");
 		if (getAge() == 10) {
 			nbOfLarvaes--;
+			setNbOfDeath(getNbOfDeath() + 1);
 			switch (type) {
 			case QueenAnt:
 				return new QueenAnt();
