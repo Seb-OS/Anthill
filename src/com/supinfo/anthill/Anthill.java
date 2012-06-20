@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.supinfo.anthill.abstracts.AbstractAnt;
-import com.supinfo.anthill.ants.LarvaeAnt;
-import com.supinfo.anthill.ants.MaleAnt;
-import com.supinfo.anthill.ants.QueenAnt;
-import com.supinfo.anthill.ants.WorkerAnt;
+import com.supinfo.anthill.models.ant.LarvaeAnt;
+import com.supinfo.anthill.models.ant.MaleAnt;
+import com.supinfo.anthill.models.ant.QueenAnt;
+import com.supinfo.anthill.models.ant.WorkerAnt;
 
 public class Anthill {
 
