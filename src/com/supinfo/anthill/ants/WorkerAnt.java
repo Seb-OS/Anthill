@@ -11,31 +11,16 @@ public class WorkerAnt extends AbstractAnt {
 	static int nbOfWorkers;
 
 	public WorkerAnt() {
+		setId(getRefId() + 1);
 		nbOfWorkers++;
 	}
 
 	@Override
-	public int getId() {
-		// TODO Auto-generated method stub
-		return super.getId();
+	public AbstractAnt updateStatus() {
+		setAge(getAge() + 1);
+		if (getAge() == 50) {
+			nbOfWorkers--;
+		}
+		return null;
 	}
-
-	@Override
-	public void setId(int id) {
-		// TODO Auto-generated method stub
-		super.setId(id);
-	}
-
-	@Override
-	public int getAge() {
-		// TODO Auto-generated method stub
-		return super.getAge();
-	}
-
-	@Override
-	public void setAge(int age) {
-		// TODO Auto-generated method stub
-		super.setAge(age);
-	}
-
 }

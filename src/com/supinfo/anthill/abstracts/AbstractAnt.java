@@ -7,6 +7,7 @@ package com.supinfo.anthill.abstracts;
 public abstract class AbstractAnt {
 	private int id;
 	private int age;
+	static int refId;
 
 	public int getId() {
 		return id;
@@ -23,8 +24,10 @@ public abstract class AbstractAnt {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	public void lifeStatus(){
-		
+
+	static public int getRefId() {
+		return refId;
 	}
+
+	public abstract AbstractAnt updateStatus();
 }

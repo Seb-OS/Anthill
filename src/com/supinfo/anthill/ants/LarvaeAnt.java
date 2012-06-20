@@ -1,5 +1,7 @@
 package com.supinfo.anthill.ants;
 
+import java.util.Random;
+
 import com.supinfo.anthill.abstracts.AbstractAnt;
 
 /**
@@ -9,42 +11,30 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
 public class LarvaeAnt extends AbstractAnt {
 
 	static int nbOfLarvaes;
-	
+
 	public LarvaeAnt() {
+		setId(getRefId() + 1);
 		nbOfLarvaes++;
 	}
 
 	@Override
-	public int getId() {
-		// TODO Auto-generated method stub
-		return super.getId();
-	}
-
-	@Override
-	public void setId(int id) {
-		// TODO Auto-generated method stub
-		super.setId(id);
-	}
-
-	@Override
-	public int getAge() {
-		// TODO Auto-generated method stub
-		return super.getAge();
-	}
-
-	@Override
-	public void setAge(int age) {
-		// TODO Auto-generated method stub
-		super.setAge(age);
-	}
-
-	@Override
-	public void lifeStatus() {
-		if(getAge()==10){
-			
+	public AbstractAnt updateStatus() {
+		setAge(getAge() + 1);
+		if (getAge() == 10) {
+			nbOfLarvaes--;
+			Random random = new Random();
+			switch (random.nextInt(3)) {
+			case 0:
+				return new MaleAnt();
+			case 1:
+				return new WorkerAnt();
+			case 2:
+				return new QueenAnt();
+			default:
+				return null;
+			}
 		}
-		//super.lifeStatus();
+		return null;
 	}
-	
 
 }

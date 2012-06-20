@@ -11,31 +11,17 @@ public class QueenAnt extends AbstractAnt {
 	static int nbOfQueens;
 
 	public QueenAnt() {
+		setId(getRefId() + 1);
 		nbOfQueens++;
 	}
 
 	@Override
-	public int getId() {
-		// TODO Auto-generated method stub
-		return super.getId();
-	}
-
-	@Override
-	public void setId(int id) {
-		// TODO Auto-generated method stub
-		super.setId(id);
-	}
-
-	@Override
-	public int getAge() {
-		// TODO Auto-generated method stub
-		return super.getAge();
-	}
-
-	@Override
-	public void setAge(int age) {
-		// TODO Auto-generated method stub
-		super.setAge(age);
+	public AbstractAnt updateStatus() {
+		setAge(getAge() + 1);
+		if (getAge() == 50) {
+			nbOfQueens--;
+		}
+		return null;
 	}
 
 }

@@ -5,7 +5,7 @@ package com.supinfo.anthill;
 
 /**
  * @author Sebastien Magat
- *
+ * 
  */
 public class Launcher {
 
