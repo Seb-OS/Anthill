@@ -1,7 +1,5 @@
 package com.supinfo.anthill.models.ant;
 
-import java.util.Random;
-
 import com.supinfo.anthill.abstracts.AbstractAnt;
 
 /**
@@ -11,8 +9,10 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
 public class LarvaeAnt extends AbstractAnt {
 
 	private static int nbOfLarvaes;
+	private AntsTypes type;
 
-	public LarvaeAnt() {
+	public LarvaeAnt(AntsTypes type) {
+		this.type = type;
 		setId(getRefId() + 1);
 		nbOfLarvaes++;
 	}
@@ -21,24 +21,15 @@ public class LarvaeAnt extends AbstractAnt {
 	public AbstractAnt updateStatus() {
 		setAge(getAge() + 1);
 		System.out.println("Larve a grandit");
-		if ((getAge() == 10) && (MaleAnt.getNbOfMales() > 0)
-				&& (QueenAnt.getNbOfQueens() > 0)) {
+		if (getAge() == 10) {
 			nbOfLarvaes--;
-
-			// A modifier : desormais l'orientation doit etre choisie des la
-			// naissance, et non plus a l'evolution
-
-			Random random = new Random();
-			switch (random.nextInt(20)) {
-			case 0:
-				System.out.println("Naissance d'un mâle");
-				return new MaleAnt();
-			case 1:
-				System.out.println("naissance d'un communiste");
-				return new WorkerAnt();
-			default:
-				System.out.println("Oh la belle reine");
+			switch (type) {
+			case QueenAnt:
 				return new QueenAnt();
+			case MaleAnt:
+				return new MaleAnt();
+			default:
+				return new WorkerAnt();
 			}
 		}
 		return this;

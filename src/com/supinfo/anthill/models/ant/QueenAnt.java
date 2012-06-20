@@ -20,8 +20,8 @@ public class QueenAnt extends AbstractAnt {
 	@Override
 	public AbstractAnt updateStatus() {
 		setAge(getAge() + 1);
-		if (getAge() < 50) {
-			randomBirth();
+		if ((getAge() < 50) && (MaleAnt.getNbOfMales() > 0)) {
+			return randomBirth();
 		}
 
 		else if (getAge() >= 50) {
@@ -38,11 +38,11 @@ public class QueenAnt extends AbstractAnt {
 		Random random = new Random();
 		int x = random.nextInt(20);
 		if (x == 0) {
-			return new QueenAnt();
+			return new LarvaeAnt(AntsTypes.QueenAnt);
 		} else if ((x == 1) || (x == 2)) {
-			return new MaleAnt();
+			return new LarvaeAnt(AntsTypes.MaleAnt);
 		} else {
-			return new WorkerAnt();
+			return new LarvaeAnt(AntsTypes.WorkerAnt);
 		}
 	}
 }

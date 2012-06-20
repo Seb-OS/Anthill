@@ -11,16 +11,13 @@ import com.supinfo.anthill.models.ant.WorkerAnt;
 
 public class Anthill {
 
-	// mettre array list de ants
-	// cf animaux qui grossissent de maniere differente,
-	// ou fridge.java
 	private List<AbstractAnt> antHill;
 
 	public Anthill() {
 		antHill = new ArrayList<AbstractAnt>();
 		for (int i = 0; i <= 10; i++) {
 			antHill.add(new MaleAnt());
-			antHill.add(new LarvaeAnt());
+			antHill.add(new LarvaeAnt(null));
 			antHill.add(new QueenAnt());
 			antHill.add(new WorkerAnt());
 			System.out.println("Ils sont ici !!!");
