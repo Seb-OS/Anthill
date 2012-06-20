@@ -18,8 +18,8 @@ public class Anthill {
 	}
 
 	public void nextTurn() {
-		for (AbstractAnt abstractAnt : antHill) {
-			updateStatus();
+		for (AbstractAnt ant : antHill) {
+			ant.updateStatus();
 		}
 		// Faire boucle sur la collection avec un for each.
 		// Met a jour chaque statu
