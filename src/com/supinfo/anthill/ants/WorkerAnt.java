@@ -4,12 +4,13 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
 
 /**
  * @author Sebastien Magat
- * 
+ *
  */
-public class LarvaeAnt extends AbstractAnt {
+public class WorkerAnt extends AbstractAnt {
 
-	public LarvaeAnt() {
-
+	
+	public WorkerAnt() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
