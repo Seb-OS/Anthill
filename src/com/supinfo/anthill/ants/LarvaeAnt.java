@@ -8,8 +8,10 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
  */
 public class LarvaeAnt extends AbstractAnt {
 
+	static int nbOfLarvaes;
+	
 	public LarvaeAnt() {
-
+		nbOfLarvaes++;
 	}
 
 	@Override
@@ -35,5 +37,14 @@ public class LarvaeAnt extends AbstractAnt {
 		// TODO Auto-generated method stub
 		super.setAge(age);
 	}
+
+	@Override
+	public void lifeStatus() {
+		if(getAge()==10){
+			
+		}
+		//super.lifeStatus();
+	}
+	
 
 }

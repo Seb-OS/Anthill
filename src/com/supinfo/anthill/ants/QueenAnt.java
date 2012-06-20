@@ -4,13 +4,14 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
 
 /**
  * @author Sebastien Magat
- *
+ * 
  */
 public class QueenAnt extends AbstractAnt {
 
-	
+	static int nbOfQueens;
+
 	public QueenAnt() {
-		// TODO Auto-generated constructor stub
+		nbOfQueens++;
 	}
 
 	@Override

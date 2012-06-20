@@ -4,13 +4,14 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
 
 /**
  * @author Sebastien Magat
- *
+ * 
  */
 public class WorkerAnt extends AbstractAnt {
 
-	
+	static int nbOfWorkers;
+
 	public WorkerAnt() {
-		// TODO Auto-generated constructor stub
+		nbOfWorkers++;
 	}
 
 	@Override

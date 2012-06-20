@@ -4,13 +4,14 @@ import com.supinfo.anthill.abstracts.AbstractAnt;
 
 /**
  * @author Sebastien Magat
- *
+ * 
  */
 public class MaleAnt extends AbstractAnt {
 
-	
+	static int nbOfMales;
+
 	public MaleAnt() {
-		// TODO Auto-generated constructor stub
+		nbOfMales++;
 	}
 
 	@Override
