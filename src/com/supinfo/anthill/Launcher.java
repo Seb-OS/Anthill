@@ -36,16 +36,22 @@ public class Launcher {
 		System.out.println("How many queens do you want ?");
 		int nbrOfQ = sc.nextInt();
 
-		new Anthill(nbrOfL, nbrOfW, nbrOfM, nbrOfQ);
+		Anthill myAnthill = new Anthill(nbrOfL, nbrOfW, nbrOfM, nbrOfQ);
 
 		do {
-			if (Toolkit.getDefaultToolkit().getLockingKeyState(
-					KeyEvent.VK_ENTER)) {
-
+			System.out.println("Enter a number of days to jump,");
+			System.out.println("or just press the ENTER key :");
+			try {
+				int x = sc.nextInt();
+				for (int i = 0; i <= x; i++) {
+					myAnthill.nextTurn();
+				}
+			} catch (Exception e) {
+				System.out.println("Non numeric value, jump of 1 day");
+				myAnthill.nextTurn();
 			}
 		} while (!Toolkit.getDefaultToolkit().getLockingKeyState(
 				KeyEvent.VK_ESCAPE));
 
 	}
-
 }
