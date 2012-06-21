@@ -41,10 +41,15 @@ public class Anthill {
 		display();
 		for (int i = 0; i < antHill.size(); i++) {
 			antHill.set(i, antHill.get(i).updateStatus());
+			if (antHill.get(i).updateStatus() == antHill.get(i)) {// ou == null
+																	// ?
+				antHill.remove(i);
+			}
 		}// si update status == null sortir la fourmie du tableau...
 	}
 
 	// le return sort du for : dc methode a revoir...
+	// is it ok now ?
 	public static AbstractAnt randomBirth(int nb) {
 		for (int i = 0; i <= nb; i++) {
 			Random random = new Random();

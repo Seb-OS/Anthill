@@ -3,6 +3,8 @@
  */
 package com.supinfo.anthill;
 
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.util.Scanner;
 
 import com.supinfo.anthill.models.Anthill;
@@ -16,6 +18,7 @@ public class Launcher {
 	/**
 	 * @param args
 	 */
+
 	public static void main(String[] args) {
 		System.out.println("Choose the number of ants...");
 		Scanner sc = new Scanner(System.in);
@@ -34,6 +37,14 @@ public class Launcher {
 		int nbrOfQ = sc.nextInt();
 
 		new Anthill(nbrOfL, nbrOfW, nbrOfM, nbrOfQ);
+
+		do {
+			if (Toolkit.getDefaultToolkit().getLockingKeyState(
+					KeyEvent.VK_ENTER)) {
+
+			}
+		} while (!Toolkit.getDefaultToolkit().getLockingKeyState(
+				KeyEvent.VK_ESCAPE));
 
 	}
 
