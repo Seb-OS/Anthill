@@ -23,7 +23,7 @@ public class MaleAnt extends AbstractAnt {
 			nbOfMales--;
 			setNbOfDeath(getNbOfDeath() + 1);
 		}
-		return null;
+		return this;
 	}
 
 	public static int getNbOfMales() {

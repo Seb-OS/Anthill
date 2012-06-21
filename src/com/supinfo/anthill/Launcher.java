@@ -5,6 +5,9 @@ package com.supinfo.anthill;
 
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.FileOutputStream;
+import java.io.NotSerializableException;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 import com.supinfo.anthill.models.Anthill;
@@ -39,19 +42,40 @@ public class Launcher {
 		Anthill myAnthill = new Anthill(nbrOfL, nbrOfW, nbrOfM, nbrOfQ);
 
 		do {
-			System.out.println("Enter a number of days to jump,");
-			System.out.println("or just press the ENTER key :");
-			try {
-				int x = sc.nextInt();
-				for (int i = 0; i <= x; i++) {
-					myAnthill.nextTurn();
-				}
-			} catch (Exception e) {
-				System.out.println("Non numeric value, jump of 1 day");
+			System.out.println("What do you want ?");
+			System.out.println("1 - jump one day");
+			System.out.println("2 - jump of 'x' days");
+			System.out.println("3 - save your anthill");
+			int x = sc.nextInt();
+			switch (x) {
+			case 1:
 				myAnthill.nextTurn();
+				break;
+			case 2:
+				try {
+					System.out.println("How many days do you want to jump ?");
+					x = sc.nextInt();
+					for (int i = 0; i <= x; i++) {
+						myAnthill.nextTurn();
+					}
+				} catch (Exception e) {
+					System.out.println("Bad value");
+				}
+			case 3:
+				System.out.println("save");
+				try {
+					FileOutputStream antFile = new FileOutputStream("myAnthill.ser");
+					ObjectOutputStream oos = new ObjectOutputStream(antFile);
+					oos.writeObject(myAnthill);
+					oos.flush();
+					oos.close();
+				} catch (Exception e) {
+					System.out.println("Error : file not saved");
+				}
+				break;
+			default:
+				break;
 			}
-		} while (!Toolkit.getDefaultToolkit().getLockingKeyState(
-				KeyEvent.VK_ESCAPE));
-
+		} while (true);
 	}
 }

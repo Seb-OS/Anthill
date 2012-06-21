@@ -23,7 +23,7 @@ public class WorkerAnt extends AbstractAnt {
 			nbOfWorkers--;
 			setNbOfDeath(getNbOfDeath() + 1);
 		}
-		return null;
+		return this;
 	}
 
 	public static int getNbOfWorkers() {

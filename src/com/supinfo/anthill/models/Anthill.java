@@ -1,5 +1,6 @@
 package com.supinfo.anthill.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,9 +11,9 @@ import com.supinfo.anthill.models.ant.MaleAnt;
 import com.supinfo.anthill.models.ant.QueenAnt;
 import com.supinfo.anthill.models.ant.WorkerAnt;
 
-public class Anthill {
+public class Anthill implements Serializable {
 
-	private List<AbstractAnt> antHill;
+	private static List<AbstractAnt> antHill;// modifié en static
 	private int age;
 
 	public Anthill(int nbrOfL, int nbrOfW, int nbrOfM, int nbrOfQ) {
@@ -36,33 +37,36 @@ public class Anthill {
 		}
 	}
 
+	//A MODIFIER
 	public void nextTurn() {
 		age++;
 		display();
 		for (int i = 0; i < antHill.size(); i++) {
-			antHill.set(i, antHill.get(i).updateStatus());
-			if (antHill.get(i).updateStatus() == antHill.get(i)) {// ou == null
-																	// ?
+			AbstractAnt antTemp = antHill.get(i).updateStatus();
+			if(antTemp == null){
 				antHill.remove(i);
-			}
-		}// si update status == null sortir la fourmie du tableau...
-	}
-
-	// le return sort du for : dc methode a revoir...
-	// is it ok now ?
-	public static AbstractAnt randomBirth(int nb) {
-		for (int i = 0; i <= nb; i++) {
-			Random random = new Random();
-			int x = random.nextInt(20);
-			if (x == 0) {
-				new LarvaeAnt(AntsTypes.QueenAnt);
-			} else if ((x == 1) || (x == 2)) {
-				new LarvaeAnt(AntsTypes.MaleAnt);
-			} else {
-				new LarvaeAnt(AntsTypes.WorkerAnt);
+			}else{
+				antHill.set(i, antTemp);
 			}
 		}
-		return null;
+	}
+
+	public static void randomBirth() {
+		Random random = new Random();
+		int x = random.nextInt(20);
+		if (x == 0) {
+			antHill.add(new LarvaeAnt(AntsTypes.QueenAnt));
+		} else if ((x == 1) || (x == 2)) {
+			antHill.add(new LarvaeAnt(AntsTypes.MaleAnt));
+		} else {
+			antHill.add(new LarvaeAnt(AntsTypes.WorkerAnt));
+		}
+	}
+
+	public static void randomBirth(int nb) {
+		for (int i = 0; i <= nb; i++) {
+			randomBirth();
+		}
 	}
 
 	public int getAge() {
